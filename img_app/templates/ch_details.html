@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity Details</title>
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons (CDN) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+    <!-- fonts awesome style -->
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="/static/css/responsive.css" rel="stylesheet" />
+
+    <style>
+        /* Custom CSS for card styling */
+        .charity-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .charity-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: #555;
+        }
+
+        .btn-1 {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn-1 i {
+            margin-right: 5px;
+        }
+
+        .btn-1:hover {
+            background-color: #218838;
+        }
+
+        /* Responsive layout */
+        .charity-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* Make the charity card full width on smaller screens */
+        @media (max-width: 768px) {
+            .charity-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1"> </span>
+                <span class="s-2"> </span>
+                <span class="s-3"> </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="menu_btn-style ">
+                <button onclick="closeNav()">
+                  <span class="s-1"> </span>
+                  <span class="s-2"> </span>
+                  <span class="s-3"> </span>
+                </button>
+              </div>
+              <div class="overlay-content">
+                <a class="" href="{% url 'index' %}">
+                  Home
+                </a>
+                <a class="" href="{% url 'about' %}">
+                  About
+                </a>
+                <a class="" href="{% url 'portfolio' %}">
+                  Portfolio
+                </a>
+                <a class="active" href="{% url 'ch_detail' %}">
+                  Charity Details
+                </a>
+                <a class="" href="{% url 'login' %}">
+                  Login
+                </a><a class="" href="{% url 'log_in' %}">
+                  ADMIN
+                </a>
+                
+              </div>
+            </div>
+            <a class="navbar-brand" href="{% url 'index' %}">
+              <span>
+                Photosec
+              </span>
+            </a>
+            
+          </nav>
+        </header>
+    </div>
+    <section class="portfolio_section layout_padding">
+        <div class="container">
+          <div class="heading_container heading_center">
+            <h2>
+              Charity Details
+            </h2>
+          </div>
+        <div class="charity-container">
+            <!-- Charity Card 1 -->
+            {% for char in ch %}
+            <div class="charity-card" >
+                <img src="{{ char.img.url }}" alt="Charity Image" class="charity-img">
+                <div class="card-body">
+                    <h5 class="card-title">{{ char.name }}</h5>
+                    <p class="card-text">{{ char.description }}</p>
+                    <p>Ph no: {{ char.contact }}</p>
+                    
+                </div>
+            </div>
+            {% empty %}
+            <p>No charity details uploaded yet.</p>
+            {% endfor %}
+            <!-- Repeat the above block for each charity (you can use a for loop in Django templates) -->
+        </div>
+    </div>
+    </section>
+
+     <!-- footer section -->
+    <footer class="footer_section">
+        <div class="container-fluid" >
+        <div class="row">
+            <div class="col-xl-6" >
+            <p>
+                &copy; <span id="displayYear"></span> All Rights Reserved.  
+            </p>
+            </div>
+        </div>
+        </div>
+    </footer>
+  <!-- footer section -->
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <script src="/static/js/custom.js"></script>
+
+    <!-- Bootstrap JS and dependencies (optional for interactive components) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

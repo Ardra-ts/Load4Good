@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Photosec</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+  <!-- fonts awesome style -->
+  <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <!-- <link href="/static/css/style.css" rel="stylesheet" /> -->
+  <!-- responsive style -->
+  <link href="/static/css/responsive.css" rel="stylesheet" />
+  <style>
+    /* Ensuring the gallery items align in a grid */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates a responsive grid */
+    gap: 20px;
+    justify-items: center;
+  }
+
+  /* Style for each image container */
+  .image {
+    border: 1px solid #ddd;  /* Adds a border to each image */
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;  /* Center the text inside the image */
+  }
+
+  /* Styling for the buttons */
+  .btn-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  /* Ensures proper alignment for card text and uploaded date */
+  .image h5, .image p {
+    margin: 10px 0;
+  }
+
+  /* Optional: Styling for the footer */
+  .footer_section {
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgba(141, 58, 21, 0.95);;
+  }
+
+  footer p {
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .gallery {
+      grid-template-columns: 1fr 1fr;  /* Two columns on smaller screens */
+    }
+
+    .btn-box {
+      flex-direction: column;  /* Stack the buttons on top of each other */
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery {
+      grid-template-columns: 1fr;  /* Single column for very small screens */
+    }
+  }
+
+
+
+  .hero_area {
+  padding: 60px;
+  position: relative;
+  }
+
+  .sub_page .header_section {
+    position: relative;
+    background-color: #85310c;
+  }
+
+  .sub_page .header_section .custom_menu-btn span {
+    background-color: #fff;
+  }
+
+  .sub_page .header_section .navbar-brand span {
+    color: #fff;
+  }
+
+  .header_section {
+    padding: 15px 25px;
+    position: absolute;
+    z-index: 99999;
+    width: 100%;
+  }
+
+  .header_section .nav_container {
+    margin: 0 auto;
+  }
+
+  .navbar-brand {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    margin-left: 5%;
+  }
+
+  .navbar-brand span {
+    font-weight: 700;
+    color: #000000;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+
+  .custom_nav-container {
+    padding: 0;
+    height: 100%;
+  }
+
+  .custom_nav-container .call_btn {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 8px 25px;
+    border: 1px solid #ffffff;
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+
+  .custom_nav-container .call_btn:hover {
+    background-color: transparent;
+    color: #ffffff;
+  }
+
+  .custom_nav-container.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 0px 25px;
+    color: #fefeff;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .custom_menu-btn button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .custom_menu-btn span {
+    display: block;
+    width: 35px;
+    height: 4.5px;
+    background-color: #000000;
+    margin: 7px 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+  .menu_btn-style {
+    position: fixed;
+    left: 27.5px;
+    top: 12.5px;
+  }
+
+  .menu_btn-style button {
+    margin-top: 0px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    -webkit-transform: translateX(2px);
+            transform: translateX(2px);
+  }
+
+  .menu_btn-style span {
+    display: block;
+    width: 35px;
+    height: 4.5px;
+    background-color: #ffffff;
+    margin: 7px 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+  .menu_btn-style button .s-1 {
+    -webkit-transform: rotate(45deg) translateY(16px);
+            transform: rotate(45deg) translateY(16px);
+  }
+
+  .menu_btn-style button .s-2 {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+  }
+
+  .menu_btn-style button .s-3 {
+    -webkit-transform: rotate(-45deg) translateY(-16px);
+            transform: rotate(-45deg) translateY(-16px);
+  }
+
+  .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(141, 58, 21, 0.95);
+    overflow-x: hidden;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  .overlay .closebtn {
+    position: absolute;
+    top: 0;
+    right: 30px;
+  }
+
+  .overlay a {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 10px 0;
+    display: block;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    border: 1.5px solid #ffffff;
+    border-radius: 5px;
+    width: 190px;
+  }
+
+  .overlay a:hover, .overlay a.active {
+    border-color: transparent;
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .menu_btn-style {
+    display: none;
+  }
+
+  .overlay-content {
+    position: relative;
+    
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .menu_width {
+    width: 100%;
+  }
+
+  </style> 
+  <script>
+    document.addEventListener('keydown', function(e) {
+    // Disable Print Screen (PrtSc) key
+    if (e.key === 'PrintScreen') {
+      e.preventDefault();
+      alert("Screenshots are disabled.");
+    }
+
+    // Disable Alt + PrtSc (window screenshot)
+    if (e.key === 'PrintScreen' && e.altKey) {
+      e.preventDefault();
+      alert("Screenshots are disabled.");
+    }
+    });
+
+  document.addEventListener('fullscreenchange', function () {
+    if (document.fullscreenElement) {
+      console.log('User is in full-screen mode');
+      // Optionally, you can display a warning
+    }
+    });
+
+  </script>
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <div class="custom_menu-btn">
+          <button onclick="openNav()">
+            <span class="s-1"> </span>
+            <span class="s-2"> </span>
+            <span class="s-3"> </span>
+          </button>
+        </div>
+        <div id="myNav" class="overlay">
+          <div class="menu_btn-style ">
+            <button onclick="closeNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+          </div>
+          <div class="overlay-content">
+            <a class="" href="{% url 'add_char' %}">
+                Add File
+              </a>
+              <a class="" href="{% url 'char' %}">
+                  My Files
+              </a>
+              
+              <a class="" href="{% url 'out' %}">
+                Logout
+              </a>
+          </div>
+        </div>
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <span>
+            Photosec
+          </span>
+        </a>
+        
+      </nav>
+    </header>
+    <!-- end header section -->
+
+ 
+
+
+  <!-- portfolio section -->
+  <div class="container">
+    <h1 class="text-center my-4">My Files</h1>
+
+
+    <div class="gallery">
+        {% for char in char %}
+          <div class="image">
+              <img src="{{ char.img.url }}" alt="Uploaded Image" style="max-width: 200px; height: auto;">
+              <h5 class="card-title">{{ char.name }}</h5>
+              <p> {{ char.description }}</p>
+              <p>Ph no: {{ char.contact }}</p>
+              <a href="" class="btn-1">
+                <i class="fa fa-download-alt" aria-hidden="true"></i>
+              </a>
+              <a href="{% url 'edit_ch' char.id %}" class="btn btn-primary">Edit</a>
+            <!-- Delete Form -->
+            <form action="" method="post" style="display:inline;">
+                {% csrf_token %}
+                <a href="{% url 'delete_ch' char.id %}" onclick="return confirm('Are you sure you want to delete this file?');">Delete</a>
+
+            </form>
+          </div>
+            
+        {% empty %}
+            <p>No images uploaded yet.</p>
+        {% endfor %}
+    </div>
+  </div>
+  </div>
+
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-6">
+          <p>
+            &copy; <span id="displayYear"></span> All Rights Reserved.  
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <script src="/static/js/jquery-3.4.1.min.js"></script>
+  <script src="/static/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script src="/static/js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>
